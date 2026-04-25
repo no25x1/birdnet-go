@@ -29,7 +29,10 @@ audio files, or RTSP streams and identify bird species.
 
 Documentation: https://github.com/tphakala/birdnet-go
 Fork: https://github.com/YOUR_USERNAME/birdnet-go`,
-	SilenceUsage: true,
+	SilenceUsage:  true,
+	// SilenceErrors prevents cobra from printing errors before we handle them
+	// ourselves in main(), avoiding duplicate error output.
+	SilenceErrors: true,
 }
 
 // versionCmd prints the version information
