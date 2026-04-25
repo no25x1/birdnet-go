@@ -29,7 +29,7 @@ audio files, or RTSP streams and identify bird species.
 
 Documentation: https://github.com/tphakala/birdnet-go
 Fork: https://github.com/YOUR_USERNAME/birdnet-go`,
-	SilenceUsage:  true,
+	SilenceUsage: true,
 	// SilenceErrors prevents cobra from printing errors before we handle them
 	// ourselves in main(), avoiding duplicate error output.
 	SilenceErrors: true,
@@ -43,6 +43,8 @@ var versionCmd = &cobra.Command{
 		fmt.Printf("BirdNET-Go %s (personal fork)\n", version)
 		fmt.Printf("  Build date: %s\n", buildDate)
 		fmt.Printf("  Commit:     %s\n", commit)
+		// Print a reminder about upstream to make it easy to check for updates
+		fmt.Printf("  Upstream:   https://github.com/tphakala/birdnet-go\n")
 	},
 }
 
