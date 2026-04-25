@@ -14,9 +14,9 @@ import (
 
 // version is set at build time via ldflags
 var (
-	version = "dev"
+	version   = "dev"
 	buildDate = "unknown"
-	commit = "none"
+	commit    = "none"
 )
 
 // rootCmd is the base command for the BirdNET-Go CLI
@@ -27,7 +27,8 @@ var rootCmd = &cobra.Command{
 the BirdNET neural network model. It can analyze audio from microphones,
 audio files, or RTSP streams and identify bird species.
 
-Documentation: https://github.com/tphakala/birdnet-go`,
+Documentation: https://github.com/tphakala/birdnet-go
+Fork: https://github.com/YOUR_USERNAME/birdnet-go`,
 	SilenceUsage: true,
 }
 
@@ -36,7 +37,7 @@ var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Print version information",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Printf("BirdNET-Go %s\n", version)
+		fmt.Printf("BirdNET-Go %s (personal fork)\n", version)
 		fmt.Printf("  Build date: %s\n", buildDate)
 		fmt.Printf("  Commit:     %s\n", commit)
 	},
