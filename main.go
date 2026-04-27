@@ -53,7 +53,9 @@ func init() {
 }
 
 func main() {
-	// Set up a context that is cancelled on SIGINT or SIGTERM
+	// Set up a context that is cancelled on SIGINT or SIGTERM.
+	// SIGTERM is the default signal sent by systemd and Docker on shutdown,
+	// so handling it here ensures clean shutdown in those environments.
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 
