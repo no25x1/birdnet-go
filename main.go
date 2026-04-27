@@ -56,7 +56,9 @@ func main() {
 	// Set up a context that is cancelled on SIGINT or SIGTERM.
 	// SIGTERM is the default signal sent by systemd and Docker on shutdown,
 	// so handling it here ensures clean shutdown in those environments.
-	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
+	// Also handle SIGHUP so the process doesn't die if the terminal closes
+	// while running interactively (e.g. over SSH).
+	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM, syscall.SIGHUP)
 	defer stop()
 
 	// Run the root command; pass context for graceful shutdown support
